@@ -1,0 +1,75 @@
+{
+  "completed_updates": 10000,
+  "selected_step": 6500,
+  "test": {
+    "split": "test",
+    "step": 6500,
+    "graphs": 1000,
+    "validation_ce": 5.971274963088499,
+    "ce_graphs": 1000,
+    "by_budget": {
+      "16": {
+        "student_best_calls": 2601.007,
+        "student_single_calls": 2632.469,
+        "random_best_calls": 2670.0,
+        "previous_best_calls": 2600.943,
+        "teacher_calls": 2300.43,
+        "paired_teacher_gap": 0.13156750357275881,
+        "paired_teacher_gap_se": 0.001028206885228955,
+        "beats_teacher_fraction": 0.0,
+        "initial_calls": 2705.599
+      },
+      "64": {
+        "student_best_calls": 2460.041,
+        "student_single_calls": 2506.333,
+        "random_best_calls": 2650.044,
+        "previous_best_calls": 2460.619,
+        "teacher_calls": 2300.43,
+        "paired_teacher_gap": 0.0697961619150001,
+        "paired_teacher_gap_se": 0.0005478835461444206,
+        "beats_teacher_fraction": 0.0,
+        "initial_calls": 2705.599
+      },
+      "128": {
+        "student_best_calls": 2390.143,
+        "student_single_calls": 2437.6820000000002,
+        "random_best_calls": 2641.577,
+        "previous_best_calls": 2390.228,
+        "teacher_calls": 2300.43,
+        "paired_teacher_gap": 0.03917570072706766,
+        "paired_teacher_gap_se": 0.0003117849086724066,
+        "beats_teacher_fraction": 0.0,
+        "initial_calls": 2705.599
+      },
+      "256": {
+        "student_best_calls": 2344.757,
+        "student_single_calls": 2385.599,
+        "random_best_calls": 2634.981,
+        "previous_best_calls": 2343.038,
+        "teacher_calls": 2300.43,
+        "paired_teacher_gap": 0.019324034621645877,
+        "paired_teacher_gap_se": 0.00021728665473359074,
+        "beats_teacher_fraction": 0.0,
+        "initial_calls": 2705.599
+      },
+      "512": {
+        "student_best_calls": 2318.79,
+        "student_single_calls": 2352.964,
+        "random_best_calls": 2629.196,
+        "previous_best_calls": 2315.449,
+        "teacher_calls": 2300.43,
+        "paired_teacher_gap": 0.008003974525278559,
+        "paired_teacher_gap_se": 0.0001805569537479305,
+        "beats_teacher_fraction": 0.07200000000000001,
+        "initial_calls": 2705.599
+      }
+    }
+  },
+  "identity": {
+    "source": "9847c4c44627e58e2c9bfbac5af876c5d38a02fccc4de2e8150781a60f306ebd",
+    "config": "6c1f930de751bc0f60e7d5c628126579c6fbdf72c4268d2a43ef7ec1f8f27f59",
+    "data": "aa24a172efce36adc58898b90537ac7d5b38223e3b10e93cf4b52dc4c217d960",
+    "world": 4,
+    "reference": "8c4ee8085621251a2a7ce04434d329beacc584de34bfe487e542724bd3a7d382"
+  }
+}

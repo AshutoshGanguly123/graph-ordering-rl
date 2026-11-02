@@ -1,0 +1,202 @@
+{
+  "paired": {
+    "256": {
+      "teacher_policy": {
+        "relative_improvement": 0.006870506787495215,
+        "ci95": [
+          0.0064061106501832115,
+          0.007334902924807219
+        ],
+        "wins": 817,
+        "graphs": 1000
+      },
+      "frozen": {
+        "relative_improvement": 0.007453313146603348,
+        "ci95": [
+          0.0069932256209413405,
+          0.007913400672265355
+        ],
+        "wins": 842,
+        "graphs": 1000
+      },
+      "teacher": {
+        "relative_improvement": 0.029357428686814933,
+        "ci95": [
+          0.027145361000465544,
+          0.03156949637316432
+        ],
+        "wins": 788,
+        "graphs": 1000
+      },
+      "BFS": {
+        "relative_improvement": 0.052121639843260764,
+        "ci95": [
+          0.05092472642467313,
+          0.0533185532618484
+        ],
+        "wins": 1000,
+        "graphs": 1000
+      },
+      "DFS": {
+        "relative_improvement": 0.048307537971892384,
+        "ci95": [
+          0.04693494313845126,
+          0.04968013280533351
+        ],
+        "wins": 993,
+        "graphs": 1000
+      }
+    },
+    "512": {
+      "teacher_policy": {
+        "relative_improvement": 0.006149679678235365,
+        "ci95": [
+          0.005752015403979519,
+          0.0065473439524912115
+        ],
+        "wins": 829,
+        "graphs": 1000
+      },
+      "frozen": {
+        "relative_improvement": 0.007307491574871488,
+        "ci95": [
+          0.006919740925367815,
+          0.007695242224375161
+        ],
+        "wins": 883,
+        "graphs": 1000
+      },
+      "teacher": {
+        "relative_improvement": 0.03989445774714909,
+        "ci95": [
+          0.037723825900438254,
+          0.04206508959385992
+        ],
+        "wins": 858,
+        "graphs": 1000
+      },
+      "BFS": {
+        "relative_improvement": 0.062402363399345226,
+        "ci95": [
+          0.06122121621783854,
+          0.06358351058085192
+        ],
+        "wins": 1000,
+        "graphs": 1000
+      },
+      "DFS": {
+        "relative_improvement": 0.05862737535300682,
+        "ci95": [
+          0.057265945739061096,
+          0.059988804966952546
+        ],
+        "wins": 998,
+        "graphs": 1000
+      }
+    },
+    "1024": {
+      "teacher_policy": {
+        "relative_improvement": 0.00495930713189269,
+        "ci95": [
+          0.004630528098430582,
+          0.0052880861653547976
+        ],
+        "wins": 810,
+        "graphs": 1000
+      },
+      "frozen": {
+        "relative_improvement": 0.0063325427520586125,
+        "ci95": [
+          0.006015714917176613,
+          0.006649370586940612
+        ],
+        "wins": 890,
+        "graphs": 1000
+      },
+      "teacher": {
+        "relative_improvement": 0.04517429017707083,
+        "ci95": [
+          0.04301542464102358,
+          0.04733315571311808
+        ],
+        "wins": 879,
+        "graphs": 1000
+      },
+      "BFS": {
+        "relative_improvement": 0.0675639667879138,
+        "ci95": [
+          0.06640622717971534,
+          0.06872170639611228
+        ],
+        "wins": 1000,
+        "graphs": 1000
+      },
+      "DFS": {
+        "relative_improvement": 0.06381387959876163,
+        "ci95": [
+          0.062485975752416316,
+          0.06514178344510695
+        ],
+        "wins": 1000,
+        "graphs": 1000
+      }
+    },
+    "2048": {
+      "teacher_policy": {
+        "relative_improvement": 0.004304664198270282,
+        "ci95": [
+          0.004019164979206975,
+          0.004590163417333589
+        ],
+        "wins": 811,
+        "graphs": 1000
+      },
+      "frozen": {
+        "relative_improvement": 0.005827534788652662,
+        "ci95": [
+          0.0055492930528521535,
+          0.00610577652445317
+        ],
+        "wins": 903,
+        "graphs": 1000
+      },
+      "teacher": {
+        "relative_improvement": 0.04826512734278359,
+        "ci95": [
+          0.04611504879120951,
+          0.05041520589435767
+        ],
+        "wins": 903,
+        "graphs": 1000
+      },
+      "BFS": {
+        "relative_improvement": 0.07058668280714689,
+        "ci95": [
+          0.0694494619127707,
+          0.07172390370152308
+        ],
+        "wins": 1000,
+        "graphs": 1000
+      },
+      "DFS": {
+        "relative_improvement": 0.06684965551726427,
+        "ci95": [
+          0.0655432076797084,
+          0.06815610335482013
+        ],
+        "wins": 1000,
+        "graphs": 1000
+      }
+    }
+  },
+  "selected_step": 1000,
+  "graphs": 1000,
+  "median_update_seconds": 7.843755455483915,
+  "peak_allocated_bytes": 5468859392,
+  "max_logp_replay_error": 6.736742648172367e-07,
+  "training_seconds": 8668.448860737,
+  "final_model_evaluation_seconds": 1884.6760642929876,
+  "initial_validation_cost": 2308.66796875,
+  "selected_validation_cost": 2294.65234375,
+  "caveat": "Graph-level intervals conditional on one trained seed; no continued-RL-only control or decoder timing."
+}

@@ -1,0 +1,203 @@
+{
+  "completed_updates": 1000,
+  "selected_step": 1000,
+  "identity": {
+    "source": "9847c4c44627e58e2c9bfbac5af876c5d38a02fccc4de2e8150781a60f306ebd",
+    "config": "6d8d28d7c962d38feb0f1223a389bd993af12b2b3f5cf2ad18a5b4e74e2948bb",
+    "data": "d1c56b4aed9313fc5a025225b6b563794e2e84d0bc36dc70d71e4f1f8ae8a3d3",
+    "initial_model": "22f23363a00f998566bf87da7a37127b47063d5317af967766575f55f02e3f88",
+    "world": 4,
+    "cost_version": "full-width-midpoint-roots-and-edge-leaves-v1"
+  },
+  "student": {
+    "step": 1000,
+    "graphs": 1000,
+    "group": 16,
+    "by_budget": {
+      "256": {
+        "cost": 2324.333,
+        "first4_cost": 2340.098,
+        "single_cost": 2364.625,
+        "initial": 2707.628,
+        "normalized": 0.8584388254221037
+      },
+      "512": {
+        "cost": 2299.132,
+        "first4_cost": 2311.92,
+        "single_cost": 2331.434,
+        "initial": 2707.628,
+        "normalized": 0.8491314168711507
+      },
+      "1024": {
+        "cost": 2286.495,
+        "first4_cost": 2296.93,
+        "single_cost": 2312.601,
+        "initial": 2707.628,
+        "normalized": 0.8444642321618774
+      },
+      "2048": {
+        "cost": 2279.087,
+        "first4_cost": 2287.806,
+        "single_cost": 2300.386,
+        "initial": 2707.628,
+        "normalized": 0.8417282580915841
+      }
+    },
+    "seconds": 627.5890466050187
+  },
+  "frozen": {
+    "step": 0,
+    "graphs": 1000,
+    "group": 16,
+    "by_budget": {
+      "256": {
+        "cost": 2341.766,
+        "first4_cost": 2357.644,
+        "single_cost": 2383.376,
+        "initial": 2707.628,
+        "normalized": 0.8648773021995636
+      },
+      "512": {
+        "cost": 2316.058,
+        "first4_cost": 2329.741,
+        "single_cost": 2350.951,
+        "initial": 2707.628,
+        "normalized": 0.8553826448832704
+      },
+      "1024": {
+        "cost": 2301.088,
+        "first4_cost": 2312.33,
+        "single_cost": 2328.937,
+        "initial": 2707.628,
+        "normalized": 0.8498538203918707
+      },
+      "2048": {
+        "cost": 2292.434,
+        "first4_cost": 2301.413,
+        "single_cost": 2315.06,
+        "initial": 2707.628,
+        "normalized": 0.8466576649377241
+      }
+    },
+    "seconds": 628.0269706489926
+  },
+  "teacher_policy": {
+    "step": 950,
+    "graphs": 1000,
+    "group": 16,
+    "by_budget": {
+      "256": {
+        "cost": 2340.367,
+        "first4_cost": 2357.279,
+        "single_cost": 2383.14,
+        "initial": 2707.628,
+        "normalized": 0.8643606137918503
+      },
+      "512": {
+        "cost": 2313.364,
+        "first4_cost": 2327.243,
+        "single_cost": 2348.867,
+        "initial": 2707.628,
+        "normalized": 0.8543876780709905
+      },
+      "1024": {
+        "cost": 2297.885,
+        "first4_cost": 2309.212,
+        "single_cost": 2326.742,
+        "initial": 2707.628,
+        "normalized": 0.848670866160344
+      },
+      "2048": {
+        "cost": 2288.94,
+        "first4_cost": 2298.559,
+        "single_cost": 2312.9,
+        "initial": 2707.628,
+        "normalized": 0.8453672365627775
+      }
+    },
+    "seconds": 629.0600470389763
+  },
+  "paired": {
+    "256": {
+      "relative_improvement": 0.007453313146603348,
+      "ci95": [
+        0.0069932256209413405,
+        0.007913400672265355
+      ],
+      "wins": 842,
+      "graphs": 1000
+    },
+    "512": {
+      "relative_improvement": 0.007307491574871488,
+      "ci95": [
+        0.006919740925367815,
+        0.007695242224375161
+      ],
+      "wins": 883,
+      "graphs": 1000
+    },
+    "1024": {
+      "relative_improvement": 0.0063325427520586125,
+      "ci95": [
+        0.006015714917176613,
+        0.006649370586940612
+      ],
+      "wins": 890,
+      "graphs": 1000
+    },
+    "2048": {
+      "relative_improvement": 0.005827534788652662,
+      "ci95": [
+        0.0055492930528521535,
+        0.00610577652445317
+      ],
+      "wins": 903,
+      "graphs": 1000
+    }
+  },
+  "paired_teacher": {
+    "256": {
+      "relative_improvement": 0.006870506787495215,
+      "ci95": [
+        0.0064061106501832115,
+        0.007334902924807219
+      ],
+      "wins": 817,
+      "graphs": 1000
+    },
+    "512": {
+      "relative_improvement": 0.006149679678235365,
+      "ci95": [
+        0.005752015403979519,
+        0.0065473439524912115
+      ],
+      "wins": 829,
+      "graphs": 1000
+    },
+    "1024": {
+      "relative_improvement": 0.00495930713189269,
+      "ci95": [
+        0.004630528098430582,
+        0.0052880861653547976
+      ],
+      "wins": 810,
+      "graphs": 1000
+    },
+    "2048": {
+      "relative_improvement": 0.004304664198270282,
+      "ci95": [
+        0.004019164979206975,
+        0.004590163417333589
+      ],
+      "wins": 811,
+      "graphs": 1000
+    }
+  },
+  "heuristics": {
+    "initial": 2707.628,
+    "teacher": 2396.249,
+    "BFS": 2452.158,
+    "DFS": 2442.682
+  },
+  "elapsed_training_seconds": 8668.448860737
+}

@@ -1,0 +1,19 @@
+{
+  "experiment": "E007-policy-teacher-student-v2-20261021-1",
+  "side": 64, "width": 64, "layers": 3, "head_width": 128,
+  "teacher_checkpoint": "/l/users/ashutosh.ganguly/graph_ordering/experiment__dense_rloo__2026_10_20__2/runs/main/best_model.pt",
+  "teacher_sha256": "8c4ee8085621251a2a7ce04434d329beacc584de34bfe487e542724bd3a7d382",
+  "teacher_step": 950, "teacher_group": 16, "teacher_horizon": 1024,
+  "teacher_graph_batch": 8, "teacher_seed": 709000000,
+  "train_graphs": 10000, "validation_graphs": 1000, "test_graphs": 1000,
+  "train_seed": 409000000, "validation_seed": 410000000, "test_seed": 411000000,
+  "seed": 202610211, "updates": 10000, "global_batch": 512,
+  "learning_rate": 0.0003, "gradient_clip": 1.0,
+  "validate_every": 500, "checkpoint_every": 500,
+  "evaluation_group": 16, "evaluation_budgets": [16,64,128,256,512],
+  "evaluation_graph_batch": 8, "ce_batch": 128, "selection_budget": 256,
+  "precision": "bf16", "shard_graphs": 8, "audit_count": 100,
+  "reference_checkpoint": "/l/users/ashutosh.ganguly/graph_ordering/experiment__dense_rloo__2026_10_20__2/runs/main/best_model.pt",
+  "reference_countdown": false,
+  "reference_sha256": "8c4ee8085621251a2a7ce04434d329beacc584de34bfe487e542724bd3a7d382"
+}

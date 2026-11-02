@@ -1,0 +1,6 @@
+{
+  "selected_rl_step": 1000,
+  "best_model_sha256": "70d5381f7749f6585122c620622f8cfb76a266df7465070d7b371c56274d49e6",
+  "teacher_sha256": "8c4ee8085621251a2a7ce04434d329beacc584de34bfe487e542724bd3a7d382",
+  "verification": "SHA256 read on gpu-04 at manual completion review on 22 October 2026"
+}

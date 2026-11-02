@@ -1,0 +1,69 @@
+{
+  "sources": {
+    "._runner.py": "48c1ada89f3fb731fc2780c24d669438dd42fc9cd97753687e972b8224edd769",
+    "teacher.py": "2fcacbacc27957db33c0cc42e4ff6330e8fa8dab8c27a95f2577481d531537b5",
+    "._evaluation.py": "48c1ada89f3fb731fc2780c24d669438dd42fc9cd97753687e972b8224edd769",
+    "model.py": "177599136e09d71453922844139eef7ad4ba74afd2cdc3a8b2b0548c951669d2",
+    "._resources.py": "48c1ada89f3fb731fc2780c24d669438dd42fc9cd97753687e972b8224edd769",
+    "._environment.py": "48c1ada89f3fb731fc2780c24d669438dd42fc9cd97753687e972b8224edd769",
+    "sft_train.py": "a17bc3f7bf54a2049a826ceb9fd3a20dbaeeeb89d0c27abf7fa250f03db814af",
+    "._rl_train.py": "48c1ada89f3fb731fc2780c24d669438dd42fc9cd97753687e972b8224edd769",
+    "common.py": "7a14d7d0a7ee1e4cd3fb098945745f14db59beacaa3f3597459df720becd820f",
+    "._data.py": "48c1ada89f3fb731fc2780c24d669438dd42fc9cd97753687e972b8224edd769",
+    "._rl_data.py": "48c1ada89f3fb731fc2780c24d669438dd42fc9cd97753687e972b8224edd769",
+    "launch.py": "4d9d05ec3cfda375d5ee55cb0bc9bd1e48c72b27aeda58d77a6c8ae6684dca62",
+    "environment.py": "abc700ef86d19c4442ec0bf89092681d7b35fe240a95aad7c4beed8fee3f4465",
+    "._sft_train.py": "48c1ada89f3fb731fc2780c24d669438dd42fc9cd97753687e972b8224edd769",
+    "._common.py": "48c1ada89f3fb731fc2780c24d669438dd42fc9cd97753687e972b8224edd769",
+    "._test_experiment.py": "48c1ada89f3fb731fc2780c24d669438dd42fc9cd97753687e972b8224edd769",
+    "._launch.py": "48c1ada89f3fb731fc2780c24d669438dd42fc9cd97753687e972b8224edd769",
+    "rl_data.py": "41532ddeea777fa9ee1c334963509b529c3f13297cf84e6caf2aa75d4db9c41e",
+    "test_experiment.py": "ee1c8f234222071f4bcd35a15be1033eac6a4d1adfc6b370f380c5af9201848c",
+    "evaluation.py": "975321e6cf2675a96f1a1b618727897d69c006280a83d1172b71651cdc018729",
+    "teacher_data.py": "fa6779d8d440761f91d37b0cd43dabc0e24eac003362e1affe265838b13080ab",
+    "._model.py": "48c1ada89f3fb731fc2780c24d669438dd42fc9cd97753687e972b8224edd769",
+    "._teacher.py": "48c1ada89f3fb731fc2780c24d669438dd42fc9cd97753687e972b8224edd769",
+    "resources.py": "146a7a3883174dc1987b644995d736b4291d32a1199a597729bf2e4fa10d7b68",
+    "runner.py": "6b291513c10da4c678dee3c5d87b296cf2ff944a10d96f017848909a0be47d07",
+    "rl_train.py": "2e05a94f6edf012e95118818d6b93c9ea34181b12b63c908a3ecb2d47c02f5d5",
+    "data.py": "ae36ead5dd829af04b71e9f358a2ffd2893ce122b682ca83d62bd1e13f6ed086",
+    "._teacher_data.py": "48c1ada89f3fb731fc2780c24d669438dd42fc9cd97753687e972b8224edd769",
+    "config.json": "03225338f86d674ee3d991e83ee84779d094eb5f528b84d5c67fea1b2deb3b8a",
+    "rl_config.json": "deda4aac8709452df039627d2b646543721bc97081bc4ade9f8379fcf859fb8d"
+  },
+  "initial_resources": {
+    "node": "<gpu-node>",
+    "reservations": "NodeName=<gpu-node> Arch=x86_64 CoresPerSocket=64  CPUAlloc=10 CPUEfctv=128 CPUTot=128 CPULoad=5.82 AvailableFeatures=(null) ActiveFeatures=(null) Gres=gpu:nvidia-rtx-5000-ada-generation:8 GresDrain=N/A GresUsed=gpu:nvidia-rtx-5000-ada-generation:0(IDX:N/A) NodeAddr=<gpu-node> NodeHostName=<gpu-node> Version=25.05.6 OS=Linux 6.12.95-ql-generic-14-12 #1 SMP PREEMPT_DYNAMIC Sat Jul  4 20:37:20 UTC 2026  RealMemory=772633 AllocMem=49152 FreeMem=494465 Sockets=2 Boards=1 MemSpecLimit=4096 State=MIXED ThreadsPerCore=1 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A Partitions=gpu  BootTime=2026-10-19T10:28:54 SlurmdStartTime=2026-10-19T10:30:29 LastBusyTime=2026-10-20T06:20:11 ResumeAfterTime=None CfgTRES=cpu=128,mem=772633M,billing=128,gres/gpu=8 AllocTRES=cpu=10,mem=48G CurrentWatts=0 AveWatts=0\n",
+    "inventory": "0, NVIDIA RTX 5000 Ada Generation, GPU-c2e1482c-7aeb-e910-bf53-6eaeaca40281, 32760, 0, 0\n1, NVIDIA RTX 5000 Ada Generation, GPU-28306e01-bf49-bf05-b680-9b531d53c1d7, 32760, 0, 0\n2, NVIDIA RTX 5000 Ada Generation, GPU-3905de69-0cb8-64ed-bdbd-22a57c08dac3, 32760, 0, 0\n3, NVIDIA RTX 5000 Ada Generation, GPU-d9aff900-b0b6-2b18-10d7-89db70dd35b2, 32760, 0, 0\n4, NVIDIA RTX 5000 Ada Generation, GPU-2873fcfc-cb9a-263b-df72-472ff61da06a, 32760, 0, 0\n5, NVIDIA RTX 5000 Ada Generation, GPU-afd4705f-40f2-1857-fd9a-4a2980f47eec, 32760, 0, 0\n6, NVIDIA RTX 5000 Ada Generation, GPU-c0a0a118-ac90-a626-16d5-b1a700889823, 32760, 0, 0\n7, NVIDIA RTX 5000 Ada Generation, GPU-a333d841-10e7-c5c9-52b9-5e1ccd5fe21d, 32760, 0, 0\n",
+    "processes": "",
+    "selected": [
+      {
+        "index": 0,
+        "uuid": "GPU-c2e1482c-7aeb-e910-bf53-6eaeaca40281",
+        "name": "NVIDIA RTX 5000 Ada Generation",
+        "memory_mib": 32760
+      },
+      {
+        "index": 1,
+        "uuid": "GPU-28306e01-bf49-bf05-b680-9b531d53c1d7",
+        "name": "NVIDIA RTX 5000 Ada Generation",
+        "memory_mib": 32760
+      },
+      {
+        "index": 2,
+        "uuid": "GPU-3905de69-0cb8-64ed-bdbd-22a57c08dac3",
+        "name": "NVIDIA RTX 5000 Ada Generation",
+        "memory_mib": 32760
+      },
+      {
+        "index": 3,
+        "uuid": "GPU-d9aff900-b0b6-2b18-10d7-89db70dd35b2",
+        "name": "NVIDIA RTX 5000 Ada Generation",
+        "memory_mib": 32760
+      }
+    ],
+    "time": 1792582176.1987948
+  },
+  "runtime": "<set-local-python>",
+  "started": 1792582176.300186
+}
