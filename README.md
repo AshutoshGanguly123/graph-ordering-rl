@@ -66,6 +66,12 @@ python src/test_experiment.py
 3. Solution quality vs wall-clock including strong local-search baselines.
 4. Publish a small eval checkpoint + one-command reproduce path.
 
+
+
+## In-flight RE3 experiment (compute-matched control)
+
+Decisive follow-up: **continued teacher RL vs fresh SFT→RL** at matched 1000-update budgets across **3 seeds**. Spec and harness: [`experiments/compute_matched_control/`](experiments/compute_matched_control/). Results will land in that folder’s `results/` when HPC runs complete — E007 numbers above remain the audited public evidence until then.
+
 ## Reference papers
 
 See [`reference_research_papers/`](reference_research_papers/) (PPO, RLOO, combinatorial / graph RL).
