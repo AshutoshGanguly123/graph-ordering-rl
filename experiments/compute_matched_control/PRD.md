@@ -15,7 +15,7 @@ Does training a **fresh student** (SFT→dense RLOO) improve test cost more than
 | Arms | (A) continued teacher RL from E006/E007 teacher ckpt; (B) SFT-only freeze; (C) SFT→RL student (reference E007 + reseed); (D) local-search swap hill-climb under matched wall-clock of one RL eval |
 | Eval | Fresh 1000 test graphs; best-of-16 @ 256/512/1024/2048; report mean cost + paired wins + seed mean±std |
 | Primary metric | Mean cost @ 1024 swaps; secondary wall-clock to reach that eval |
-| Non-goals this ITER | Full distribution-shift suite (document as follow-on) |
+| Non-goals for this round | Full distribution-shift suite (document as follow-on) |
 
 ## Deliverables
 

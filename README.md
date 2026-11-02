@@ -4,88 +4,50 @@ Learned policies for **minimum-cost graph vertex ordering** via a locked teacher
 
 **Author:** Ashutosh Ganguly — AI researcher @ MBZUAI.
 
-## Claim
+## Results (E007, @ 1,024 swaps)
 
-On a fresh 1,000-graph test set (best-of-16 rollouts), the SFT+RL student **beats classical orderings by a wide margin** and **wins the majority of paired comparisons** against a strong learned teacher—while the incremental gain over that teacher is intentionally the hard control.
+Lower mean full symmetric recursive cost is better.
 
-## Headline results (E007, @ 1,024 swaps)
+| Policy | Mean cost |
+|--------|----------:|
+| **SFT + RL (student)** | **2286.5** |
+| Learned teacher (E006) | 2297.9 |
+| SFT only (pre-RL) | 2301.1 |
+| Spectral bisection | 2396.2 |
+| DFS | 2442.7 |
+| BFS | 2452.2 |
+| Initial ordering | ~2707.6 |
 
-Lower mean full symmetric recursive cost is better. Learned policies: best-of-16. Classical: single ordering.
-
-| Policy | Mean cost | vs policy | Paired wins |
-|--------|----------:|----------:|------------:|
-| **SFT + RL (ours)** | **2286.5** | — | — |
-| Spectral bisection | 2396.2 | **−4.6%** | **879 / 1000** |
-| DFS | 2442.7 | **−6.4%** | **~993–1000 / 1000** |
-| BFS | 2452.2 | **−6.8%** | **1000 / 1000** |
-| Initial ordering | ~2707.6 | **−15.6%** | — |
-
-### Hard control (same architecture, matched eval)
-
-| Comparison @ 1024 | Relative gain | Wins |
-|-------------------|--------------:|-----:|
-| vs previous learned teacher (E006) | **+0.50%** (95% CI 0.46–0.53) | **810 / 1000** |
-| vs frozen SFT (pre-RL) | **+0.63%** | **890 / 1000** |
-| vs teacher @ 2048 swaps | **+0.43%** | **811 / 1000** |
-
-**Read this correctly:** the ~0.5% teacher delta is *small and real* under a paired protocol. The **~5–7% vs spectral/BFS/DFS** and **~15% vs initial** are the practical impact numbers. Both belong in the story.
-
-Sources: [`review/`](review/) (`comparison.csv`, `audited_results.json`, figures) and [`metrics/`](metrics/).
+Learned policies use best-of-16 rollouts; BFS/DFS/spectral are single orderings (not an equal-compute bakeoff). Sources: [`review/`](review/), [`metrics/`](metrics/).
 
 ## Method
 
-1. **Teacher data** — audited E006 teacher emits best-of-16 trajectory prefixes on fresh graphs.
-2. **SFT** — new same-architecture student learns selected actions (10k updates; selected step 6,500).
-3. **RL** — exact-cost dense RLOO (`rl_config.json`; 1k updates, all selected).
-4. **Eval** — 1,000 held-out graphs, best-of-16 @ 256/512/1024/2048 swap budgets vs teacher, SFT, and classical heuristics.
+1. Teacher emits best-of-16 trajectory prefixes on fresh graphs.
+2. Fresh student SFT on selected actions (10k updates; selected step 6,500).
+3. Dense RLOO (`rl_config.json`; 1k updates).
+4. Eval on 1,000 held-out graphs @ 256/512/1024/2048 swap budgets.
 
-Code: [`src/`](src/). Locked configs: `config.json`, `rl_config.json`. Design record: `PRD.md`, `HANDOFF.md`.
+Code: [`src/`](src/). Configs: `config.json`, `rl_config.json`. Design notes: `PRD.md`.
 
 ## Setup
 
 ```bash
 pip install -r requirements.txt
 python src/test_experiment.py
-# Full HPC pipeline (reservations / GPU checks): see HANDOFF.md
-# python src/launch.py
 ```
 
-`deployment.example.json` has local paths redacted.
+## Limitations
 
-## Limitations (honest)
+- Single training seed so far.
+- Classical heuristics are weak relative to a matched wall-clock local-search baseline (planned).
+- Learned vs classical comparisons are not equal attempt budgets (best-of-16 vs one shot).
+- Checkpoints stay on HPC; this repo ships code, configs, and audited summaries.
 
-- **One training seed**; CIs condition on this model and test distribution.
-- No equal-budget **continued-RL-on-teacher** control yet — so we do *not* claim student retrain beats “just keep RLing the teacher.”
-- Not an equal wall-clock or decoder-speed bakeoff vs local search.
-- Checkpoints / trajectory shards stay on HPC; this repo ships code, configs, audited summaries, and figures.
+## Ongoing work
 
-## RE3 roadmap (next experiments)
+Compute-matched continued-teacher RL vs fresh SFT→RL (multi-seed) is in progress under [`experiments/compute_matched_control/`](experiments/compute_matched_control/).
 
-1. Matched-compute continued-RL on the teacher vs student retrain.
-2. Multi-seed training; separate model variance from graph-sampling uncertainty.
-3. Solution quality vs wall-clock including strong local-search baselines.
-4. Publish a small eval checkpoint + one-command reproduce path.
-
-
-
-## Ongoing work (note)
-
-The compute-matched control (`experiments/compute_matched_control/`) is **ongoing** — multi-seed continued-teacher RL vs fresh SFT→RL is in flight; E007 numbers above remain the audited public evidence until those runs finish.
-
-This repo sits inside a broader research program: **teaching Transformers executable programs over graphs** (policies / orderings / structured search), aimed at a careful study of **capabilities vs. incapacities** of Transformers on graph-structured computation (what vertex-order / message patterns they can learn, where they fail, and which inductive biases close the gap). Graph ordering is one concrete probe in that line—not a finished theory paper.
-
-### Related reading (also in `reference_research_papers/`)
-
-| Paper | Why it frames this line of work |
-|-------|----------------------------------|
-| **Order Matters: Sequence to Sequence for Sets** (Vinyals et al., ICLR 2016) | Foundational: set/sequence models are order-sensitive; motivates why *learned orderings* matter for Transformer-style architectures |
-| **Pure Transformers are Powerful Graph Learners** (Kim et al., NeurIPS 2022) | Shows tokenized / Transformer-only graph learning can work—and where the story gets subtle |
-| **GraphGPS** — *Recipe for a General, Powerful, Scalable Graph Transformer* (Rampášek et al., NeurIPS 2022) | Modern GPS blueprint for hybrid MPNN+attention graph Transformers |
-| **GDGB** — generative dynamic text-attributed graph benchmark (2025) | Stress-tests generative / dynamic graph learning beyond static toy setups |
-
-## Reference papers
-
-See [`reference_research_papers/`](reference_research_papers/) (PPO, RLOO, combinatorial / graph RL).
+Broader program: teaching Transformers executable programs over graphs, toward a study of **capabilities vs incapacities** of Transformers on graph-structured computation. Related reading (links only): [`reference_research_papers/`](reference_research_papers/).
 
 ## License
 

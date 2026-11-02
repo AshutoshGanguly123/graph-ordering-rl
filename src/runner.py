@@ -1,4 +1,4 @@
-"""Finite authorized stages; no background monitoring or scheduling service."""
+"""Finite staged runner; no background monitoring or scheduling service."""
 import json,os,subprocess,time
 from pathlib import Path
 from common import ROOT,atomic_json,file_hash

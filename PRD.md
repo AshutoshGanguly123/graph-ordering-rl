@@ -7,8 +7,7 @@ RL resumed on <gpu-node> cards 0–3 after an earlier free-GPU resource halt.
 At 1,024 swaps, best of 16: new policy 2286.495 vs old learned teacher 2297.885;
 mean paired improvement 0.4959%, wins 810/1,000. See review_2026_10_22/README.md.
 CPU tests, all four-rank CUDA smoke stages and
-100 full-size demonstration audits passed. User authorized building
-and starting this complete experiment. Folder: experiment__policy_teacher_v2__2026_10_21__1.
+100 full-size demonstration audits passed. Pipeline launched after local audits passed. Folder: experiment__policy_teacher_v2__2026_10_21__1.
 The question is whether the improved SFT+RL policy can teach a fresh same-capacity
 student that improves further after the same RL treatment. Improvement is not
 assumed: distilling successful searches can amortize their behaviour, but may lose
@@ -116,5 +115,5 @@ All code/data/results on /l; source/config locked after deployment. Phase JSON,
 atomic shard commits, rank RNG snapshots and checkpoint pointers support restart.
 Prune old optimizer checkpoints where documented, retain best models and provenance.
 Credentials/helper/runbook never uploaded. Monitor only when user asks, apart
-from checks necessary to complete the authorized launch. If resources are
+from checks necessary to complete the launch. If resources are
 unavailable, preserve the complete runnable experiment and report the exact blocker.
