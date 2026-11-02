@@ -1,54 +1,75 @@
 # graph-ordering-rl
 
-Learned policies for **minimum-cost graph vertex ordering** via a teacher → SFT → RLOO pipeline on dense swap environments.
+Learned policies for **minimum-cost graph vertex ordering** via a locked teacher → SFT → dense RLOO pipeline.
 
 **Author:** Ashutosh Ganguly — AI researcher @ MBZUAI.
 
 ## Claim
 
-A same-architecture student trained from an audited teacher (best-of-16 trajectory prefixes) then RLOO-refined can **match or slightly beat** the teacher on fresh graphs under fixed swap budgets — with transparent selection counts and paired win rates.
+On a fresh 1,000-graph test set (best-of-16 rollouts), the SFT+RL student **beats classical orderings by a wide margin** and **wins the majority of paired comparisons** against a strong learned teacher—while the incremental gain over that teacher is intentionally the hard control.
+
+## Headline results (E007, @ 1,024 swaps)
+
+Lower mean full symmetric recursive cost is better. Learned policies: best-of-16. Classical: single ordering.
+
+| Policy | Mean cost | vs policy | Paired wins |
+|--------|----------:|----------:|------------:|
+| **SFT + RL (ours)** | **2286.5** | — | — |
+| Spectral bisection | 2396.2 | **−4.6%** | **879 / 1000** |
+| DFS | 2442.7 | **−6.4%** | **~993–1000 / 1000** |
+| BFS | 2452.2 | **−6.8%** | **1000 / 1000** |
+| Initial ordering | ~2707.6 | **−15.6%** | — |
+
+### Hard control (same architecture, matched eval)
+
+| Comparison @ 1024 | Relative gain | Wins |
+|-------------------|--------------:|-----:|
+| vs previous learned teacher (E006) | **+0.50%** (95% CI 0.46–0.53) | **810 / 1000** |
+| vs frozen SFT (pre-RL) | **+0.63%** | **890 / 1000** |
+| vs teacher @ 2048 swaps | **+0.43%** | **811 / 1000** |
+
+**Read this correctly:** the ~0.5% teacher delta is *small and real* under a paired protocol. The **~5–7% vs spectral/BFS/DFS** and **~15% vs initial** are the practical impact numbers. Both belong in the story.
+
+Sources: [`review/`](review/) (`comparison.csv`, `audited_results.json`, figures) and [`metrics/`](metrics/).
 
 ## Method
 
-1. **Teacher data:** E006 teacher emits best-of-16 prefixes on fresh graphs.
-2. **SFT:** new student learns selected actions from scratch (config-locked).
-3. **RL:** exact-cost RLOO treatment (`rl_config.json`).
-4. **Eval:** fresh 1,000-graph test, best-of-16 rollouts @ 1024 / 2048 swaps vs teacher and classical heuristics.
+1. **Teacher data** — audited E006 teacher emits best-of-16 trajectory prefixes on fresh graphs.
+2. **SFT** — new same-architecture student learns selected actions (10k updates; selected step 6,500).
+3. **RL** — exact-cost dense RLOO (`rl_config.json`; 1k updates, all selected).
+4. **Eval** — 1,000 held-out graphs, best-of-16 @ 256/512/1024/2048 swap budgets vs teacher, SFT, and classical heuristics.
 
-Code: `src/`. Locked configs: `config.json`, `rl_config.json`. Review pack: `review/`.
-
-## Metrics (E007 / policy_teacher_v2)
-
-From `review/` and `metrics/*_final_summary.json` (pipeline completed 22 Oct 2026):
-
-| Policy | Cost @ 1024 swaps | Cost @ 2048 swaps |
-|--------|------------------:|------------------:|
-| **New SFT+RL** | **2286.495** | **2279.087** |
-| E006 learned teacher | 2297.885 | 2288.940 |
-| New SFT (pre-RL) | 2301.088 | 2292.434 |
-| Spectral / BFS / DFS | ~2396 / 2452 / 2443 | (single ordering) |
-
-Paired vs teacher @1024: **+0.50%** relative, wins **810/1000**. SFT updates 10k (selected 6500); RL updates 1k (selected 1000).
+Code: [`src/`](src/). Locked configs: `config.json`, `rl_config.json`. Design record: `PRD.md`, `HANDOFF.md`.
 
 ## Setup
 
 ```bash
-# create a Python env with the experiment deps (torch, etc.)
-pip install -r requirements.txt  # add pins for your cluster
+pip install -r requirements.txt
 python src/test_experiment.py
-# Full pipeline is HPC-oriented; see HANDOFF.md / PRD.md for stage gates.
+# Full HPC pipeline (reservations / GPU checks): see HANDOFF.md
 # python src/launch.py
 ```
 
-`deployment.example.json` shows resource fields with local paths redacted.
+`deployment.example.json` has local paths redacted.
 
-## Limitations / non-claims
+## Limitations (honest)
 
-- Checkpoints, teacher trajectory shards, and full `runs/` are **not** published (~5GB+); summaries + review figures only.
-- Gains vs teacher are modest; heuristics remain much worse — this is not a solved combinatorial optimum claim.
-- Results depend on fixed seeds, swap budgets, and the audited 12k-graph teacher manifest.
-- Launcher assumes reservation/GPU occupancy checks on shared HPC — not a cloud AutoScale trainer.
+- **One training seed**; CIs condition on this model and test distribution.
+- No equal-budget **continued-RL-on-teacher** control yet — so we do *not* claim student retrain beats “just keep RLing the teacher.”
+- Not an equal wall-clock or decoder-speed bakeoff vs local search.
+- Checkpoints / trajectory shards stay on HPC; this repo ships code, configs, audited summaries, and figures.
+
+## RE3 roadmap (next experiments)
+
+1. Matched-compute continued-RL on the teacher vs student retrain.
+2. Multi-seed training; separate model variance from graph-sampling uncertainty.
+3. Solution quality vs wall-clock including strong local-search baselines.
+4. Publish a small eval checkpoint + one-command reproduce path.
+
+## Reference papers
+
+See [`reference_research_papers/`](reference_research_papers/) (PPO, RLOO, combinatorial / graph RL).
 
 ## License
 
-MIT. Document any third-party env code separately if vendored later.
+MIT.

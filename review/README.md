@@ -28,12 +28,14 @@ Training including periodic validation: 2.41 hours; final three model evaluation
 31.4 minutes. Median update 7.844 seconds; peak allocated 5.47 GB/GPU. All 1,000
 loss/gradient metrics finite; maximum mean absolute replay error 6.74e-7.
 
-Interpretation: another same-architecture teacher-student-RL cycle can improve
-this ordering objective, although the incremental gain is modest. One trained
-seed; intervals condition on this model and test distribution. Without an
-equal-budget continued-RL-only control, this does not establish that retraining a
-student is better than continuing RL on its teacher. No general optimality,
-large-graph, temporal forecasting or actual BiGG generation-speed claim.
+Interpretation: vs classical heuristics the policy is decisively better
+(~4.6% vs spectral, ~6.4–6.8% vs DFS/BFS, 1000/1000 wins vs BFS at 1,024).
+Vs the previous learned teacher the incremental gain is smaller but consistent
+(+0.50%, 810/1000 wins) with a tight graph-level interval. One trained seed;
+intervals condition on this model and test distribution. Without an equal-budget
+continued-RL-only control, this does not establish that retraining a student is
+better than continuing RL on its teacher. No general optimality, large-graph,
+temporal forecasting or actual BiGG generation-speed claim.
 
 Reproduce: run `.venv/bin/python experiment__policy_teacher_v2__2026_10_21__1/review_2026_10_22/analyze.py`
 from the thesis root. Source/config hashes, resolved checkpoint binding, 21
