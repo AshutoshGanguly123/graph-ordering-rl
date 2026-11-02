@@ -68,9 +68,20 @@ python src/test_experiment.py
 
 
 
-## In-flight RE3 experiment (compute-matched control)
+## Ongoing work (note)
 
-Decisive follow-up: **continued teacher RL vs fresh SFT→RL** at matched 1000-update budgets across **3 seeds**. Spec and harness: [`experiments/compute_matched_control/`](experiments/compute_matched_control/). Results will land in that folder’s `results/` when HPC runs complete — E007 numbers above remain the audited public evidence until then.
+The compute-matched control (`experiments/compute_matched_control/`) is **ongoing** — multi-seed continued-teacher RL vs fresh SFT→RL is in flight; E007 numbers above remain the audited public evidence until those runs finish.
+
+This repo sits inside a broader research program: **teaching Transformers executable programs over graphs** (policies / orderings / structured search), aimed at a careful study of **capabilities vs. incapacities** of Transformers on graph-structured computation (what vertex-order / message patterns they can learn, where they fail, and which inductive biases close the gap). Graph ordering is one concrete probe in that line—not a finished theory paper.
+
+### Related reading (also in `reference_research_papers/`)
+
+| Paper | Why it frames this line of work |
+|-------|----------------------------------|
+| **Order Matters: Sequence to Sequence for Sets** (Vinyals et al., ICLR 2016) | Foundational: set/sequence models are order-sensitive; motivates why *learned orderings* matter for Transformer-style architectures |
+| **Pure Transformers are Powerful Graph Learners** (Kim et al., NeurIPS 2022) | Shows tokenized / Transformer-only graph learning can work—and where the story gets subtle |
+| **GraphGPS** — *Recipe for a General, Powerful, Scalable Graph Transformer* (Rampášek et al., NeurIPS 2022) | Modern GPS blueprint for hybrid MPNN+attention graph Transformers |
+| **GDGB** — generative dynamic text-attributed graph benchmark (2025) | Stress-tests generative / dynamic graph learning beyond static toy setups |
 
 ## Reference papers
 
